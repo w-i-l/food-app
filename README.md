@@ -1,4 +1,4 @@
 # Food
-My first project using SwiftUI
+My first big project using SwiftUI
 
-Definetely not done, but on my way to finish it.
+Won Bronze Medal at “InfoEducatie” Olympiad (mobile section)
