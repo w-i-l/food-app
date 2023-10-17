@@ -76,7 +76,7 @@ struct Explore:View{
                         
                         
                         //top picked
-//                        NavigationLink(destination:Item().navigationBarHidden(true)) {
+//                        NavigationLink(destination:FoodItemView().navigationBarHidden(true)) {
                             HStack {
                                 Text("Top picked")
                                     .foregroundColor(blackJetColor)
@@ -89,7 +89,7 @@ struct Explore:View{
                             .padding(.leading,10)
 //                        }
                         
-                        NavigationLink(destination:Item(itemType: .pizza, name: "Diavola", image: "diavola", price: 11.59, text: "Pizza diavola is a style of pizza in Italian cuisine made with mozzarella cheese, Italian ham, mushrooms, artichokes and tomatoes. The types of edible mushrooms used may include creams and more.").navigationBarHidden(true)) {
+                        NavigationLink(destination:FoodItemView(itemType: .pizza, name: "Diavola", image: "diavola", price: 11.59, text: "Pizza diavola is a style of pizza in Italian cuisine made with mozzarella cheese, Italian ham, mushrooms, artichokes and tomatoes. The types of edible mushrooms used may include creams and more.").navigationBarHidden(true)) {
                             ZStack {
                                 Image("food")
                                     .resizable()
@@ -133,7 +133,7 @@ struct Explore:View{
                                     ForEach(0..<2){no in
                                         let item = FoodAPI.shared.getAllFood()[num*2+no]
                                         
-                                        NavigationLink(destination:Item(itemType: item.category, name: item.name, image: item.image, price: item.price, text: item.description).navigationBarHidden(true)){
+                                        NavigationLink(destination:FoodItemView(itemType: item.category, name: item.name, image: item.image, price: item.price, text: item.description).navigationBarHidden(true)){
                                             FoodCardView(name: item.name, image: item.image, price: item.price)
                                         }
                                     }
