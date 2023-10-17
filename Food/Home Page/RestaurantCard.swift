@@ -27,7 +27,7 @@ struct RestaurantCard:View{
                                 .frame(width: 150, height: 100)
                                 .aspectRatio(contentMode: .fit)
 //                .cornerRadius(20)
-                .overlay(.gray.opacity(0.7))
+                .overlay(Color.gray.opacity(0.7))
                 .cornerRadius(20)
             
             Text(image.uppercased())

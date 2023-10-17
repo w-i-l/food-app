@@ -56,7 +56,7 @@ struct Explore:View{
                                 HStack(spacing:20){
                                     ForEach(0..<4){no in
                                         
-                                        let item = categoryArray[num*4+no]
+                                        let item = CategoriesMockedData.shared.categoryArray[num*4+no]
                                         
                                         NavigationLink(destination:CategoryStruct(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
                                             CategoryCard(text: item.name, image: item.image,width:70,height:70, color: item.color)
@@ -95,7 +95,7 @@ struct Explore:View{
                                     .resizable()
                                     .aspectRatio(1.5,contentMode:.fit)
                                     .frame(height:200)
-                                    .overlay(.gray.opacity(0.6))
+                                    .overlay(Color.gray.opacity(0.6))
                                     .cornerRadius(20)
                                
                                 
@@ -131,7 +131,7 @@ struct Explore:View{
                             ForEach(0..<noOfFavoritePlatesPairs){num in
                                 HStack(spacing:40) {
                                     ForEach(0..<2){no in
-                                        let item = allFood[num*2+no]
+                                        let item = FoodAPI.shared.getAllFood()[num*2+no]
                                         
                                         NavigationLink(destination:Item(itemType: item.category, name: item.name, image: item.image, price: item.price, text: item.description).navigationBarHidden(true)){
                                             FoodCard(name: item.name, image: item.image, price: item.price)
@@ -158,7 +158,7 @@ struct Explore:View{
     }
     
     init(){
-        favoritePlates = Array(repeating: Int.random(in: 0..<allFood.count), count: noOfFavoritePlatesPairs*2)
+        favoritePlates = Array(repeating: Int.random(in: 0..<FoodAPI.shared.getAllFood().count), count: noOfFavoritePlatesPairs*2)
     }
     
 }

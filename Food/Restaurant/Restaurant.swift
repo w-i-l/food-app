@@ -181,7 +181,7 @@ struct  Restaurant:View{
         
     }
     
-    init(name:String="McDonald's",logo:String="mcdonald's_logo",stars:Float=4.8,distance:Float=5,noOfCoupons:Int = 0,items:Array<FoodItem>=mcDonaldsItemsArray){
+    init(name:String="McDonald's",logo:String="mcdonald's_logo",stars:Float=4.8,distance:Float=5,noOfCoupons:Int = 0,items:Array<FoodItem>=FoodMockedData.shared.allFood){
         self.noOfCoupons = noOfCoupons
         self.name = name
         self.logo = logo

@@ -60,10 +60,10 @@ struct CategoryStruct:View{
                 
                 ScrollView(showsIndicators:false) {
                     VStack(spacing:20){
-                        ForEach(Array(stride(from: 0, to: Array(allFood.filter{$0.category == category}).count, by: 2)),id:\.self){num in
+                        ForEach(Array(stride(from: 0, to: Array(FoodAPI.shared.getAllFood().filter{$0.category == category}).count, by: 2)),id:\.self){num in
                             
                             
-                            let array = Array(allFood.filter{$0.category == self.category})
+                            let array = Array(FoodAPI.shared.getAllFood().filter{$0.category == self.category})
                             let item = array[num]
                            
                             

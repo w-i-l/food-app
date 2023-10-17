@@ -108,7 +108,7 @@ struct Item:View{
                         
                               
                         //add button
-                        NavigationLink(destination:Add(keys:allFood.filter{$0.name == self.name}[0].menuItemsKeys,values:allFood.filter{$0.name == self.name}[0].menuItemsValues,quantity:quantity,name:self.name).navigationBarHidden(true)){
+                        NavigationLink(destination:Add(keys:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsKeys,values:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsValues,quantity:quantity,name:self.name).navigationBarHidden(true)){
                             ZStack {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(blackJetColor)

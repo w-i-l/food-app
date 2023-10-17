@@ -143,7 +143,7 @@ struct Add:View{
                         }
                     .onTapGesture{
                         //add items to dict storage
-                        storage.itemsInCart[allFood[allFood.firstIndex(of:allFood.filter{$0.name==name}[0]) ?? 0]] = (storage.itemsInCart[allFood[allFood.firstIndex(of:allFood.filter{$0.name==name}[0]) ?? 0]] ?? 0) + quantity
+                        storage.itemsInCart[FoodAPI.shared.getAllFood()[FoodAPI.shared.getAllFood().firstIndex(of:FoodAPI.shared.getAllFood().filter{$0.name==name}[0]) ?? 0]] = (storage.itemsInCart[FoodAPI.shared.getAllFood()[FoodAPI.shared.getAllFood().firstIndex(of:FoodAPI.shared.getAllFood().filter{$0.name==name}[0]) ?? 0]] ?? 0) + quantity
 //                        print(itemsInCart)
                         
                         dismiss()

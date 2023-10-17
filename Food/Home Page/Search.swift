@@ -39,7 +39,7 @@ struct Search:View{
                     Spacer()
                     
                     ZStack {
-                        TextField("Search", text:$textInput,prompt:Text("Search").foregroundColor(.gray))
+                        TextField("Search", text: $textInput)
                             .foregroundColor(.gray)
                             .font(.system(size:18))
                             .padding()
@@ -151,14 +151,14 @@ struct Search:View{
     var searchArray:[FoodItem]{
         
         if textInput.isEmpty{
-            return allFood
+            return FoodAPI.shared.getAllFood()
         }
-        else if allFood.filter({$0.name.lowercased().starts(with:textInput.lowercased())}).count == 0{
-//        else if allFood.filter({$0.name.lowercased().contains(textInput.lowercased())}).count == 0{
+        else if FoodAPI.shared.getAllFood().filter({$0.name.lowercased().starts(with:textInput.lowercased())}).count == 0{
+//        else if FoodAPI.shared.getAllFood().filter({$0.name.lowercased().contains(textInput.lowercased())}).count == 0{
             return []
         }
         else{
-            return allFood.filter{$0.name.lowercased().starts(with:textInput.lowercased())}
+            return FoodAPI.shared.getAllFood().filter{$0.name.lowercased().starts(with:textInput.lowercased())}
             
         }
         

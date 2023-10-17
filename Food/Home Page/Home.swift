@@ -13,7 +13,7 @@ struct Home:View{
     @EnvironmentObject var storage:Storage
     
 //    @Binding var isShowingNavBar:Bool
-//    @State var isShowingNavBarArray = Array.init(repeating: false, count: restaurantsArray.count){willSet{
+//    @State var isShowingNavBarArray = Array.init(repeating: false, count: RestaurantAPI.shared.getAllRestaurants().count){willSet{
 //        for item in newValue{
 //            if item==true{
 //                isShowingNavBar = true
@@ -48,7 +48,7 @@ struct Home:View{
                         Image("food")
                             .resizable()
                             .aspectRatio(3,contentMode: .fit)
-                            .overlay(.gray.opacity(0.6))
+                            .overlay(Color.gray.opacity(0.6))
                             .cornerRadius(20)
                             .frame(width: UIScreen.main.bounds.width-40,height:125)
                         
@@ -68,9 +68,9 @@ struct Home:View{
                     
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing:15){
-                            ForEach(0..<categoryArray.count){num in
+                            ForEach(0..<CategoriesMockedData.shared.categoryArray.count){num in
                                 
-                                let item = categoryArray[num]
+                                let item = CategoriesMockedData.shared.categoryArray[num]
                                 
                                 NavigationLink(destination:CategoryStruct(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
                                     CategoryCard(text: item.name, image: item.image,color: item.color)
@@ -101,17 +101,17 @@ struct Home:View{
                     
                     VStack{
                     
-                        ForEach(Array(stride(from: 0, to: restaurantsArray.count, by: 2)),id:\.self){num in
+                        ForEach(Array(stride(from: 0, to: RestaurantAPI.shared.getAllRestaurants().count, by: 2)),id:\.self){num in
                             
-                            let first = restaurantsArray[num]
+                            let first = RestaurantAPI.shared.getAllRestaurants()[num]
                            
                             HStack(spacing:25){
                                 
                                 NavigationLink(destination:Restaurant(name: first.name, logo: first.logo, stars: first.stars, distance: first.distance, noOfCoupons: first.noOfcoupons, items: first.items).navigationBarHidden(true)){
                                     RestaurantCard(image: first.image, logo: first.logo)}
                                 
-                                if num+1<restaurantsArray.count{
-                                    let second = restaurantsArray[num+1]
+                                if num+1<RestaurantAPI.shared.getAllRestaurants().count{
+                                    let second = RestaurantAPI.shared.getAllRestaurants()[num+1]
                                     NavigationLink(destination:Restaurant(name: second.name, logo: second.logo, stars: second.stars, distance: second.distance, noOfCoupons: second.noOfcoupons, items: second.items).navigationBarHidden(true)){
                                        
                                         RestaurantCard(image: second.image, logo: second.logo)
