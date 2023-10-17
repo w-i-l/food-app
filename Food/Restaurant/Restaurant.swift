@@ -135,7 +135,7 @@ struct  Restaurant:View{
                                     
                                     HStack(spacing:10){
                                         NavigationLink(destination:Item(itemType: item.category, name: item.name,image:item.image, price: item.price, text: item.description).navigationBarHidden(true)){
-                                            FoodCard(name: item.name,image:item.image, price: item.price)
+                                            FoodCardView(name: item.name,image:item.image, price: item.price)
                                                 .padding([.leading,.trailing])
                                         }
                                         if no+1<items.count{
@@ -143,7 +143,7 @@ struct  Restaurant:View{
                                             let item2 = items[no+1]
                                             
                                             NavigationLink(destination:Item(itemType: item2.category, name: item2.name,image:item2.image, price: item2.price, text: item2.description).navigationBarHidden(true)){
-                                                FoodCard(name: item2.name,image:item2.image, price: item2.price)
+                                                FoodCardView(name: item2.name,image:item2.image, price: item2.price)
                                                     .padding([.leading,.trailing])
                                             }
                                         }

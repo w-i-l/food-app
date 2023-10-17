@@ -58,8 +58,8 @@ struct Explore:View{
                                         
                                         let item = CategoriesMockedData.shared.categoryArray[num*4+no]
                                         
-                                        NavigationLink(destination:CategoryStruct(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
-                                            CategoryCard(text: item.name, image: item.image,width:70,height:70, color: item.color)
+                                        NavigationLink(destination:CategoryView(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
+                                            CategoryCardView(text: item.name, image: item.image,width:70,height:70, color: item.color)
                                         }
                                             
                                     }
@@ -134,7 +134,7 @@ struct Explore:View{
                                         let item = FoodAPI.shared.getAllFood()[num*2+no]
                                         
                                         NavigationLink(destination:Item(itemType: item.category, name: item.name, image: item.image, price: item.price, text: item.description).navigationBarHidden(true)){
-                                            FoodCard(name: item.name, image: item.image, price: item.price)
+                                            FoodCardView(name: item.name, image: item.image, price: item.price)
                                         }
                                     }
                                 }

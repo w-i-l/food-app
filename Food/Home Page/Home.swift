@@ -9,19 +9,8 @@ import SwiftUI
 
 struct Home:View{
     
-    @State var textInput = "Search"
-    @EnvironmentObject var storage:Storage
-    
-//    @Binding var isShowingNavBar:Bool
-//    @State var isShowingNavBarArray = Array.init(repeating: false, count: RestaurantAPI.shared.getAllRestaurants().count){willSet{
-//        for item in newValue{
-//            if item==true{
-//                isShowingNavBar = true
-//                break
-//            }
-//        }
-//        isShowingNavBar = false
-//    }}
+    @State private var textInput = "Search"
+    @EnvironmentObject private var storage: Storage
     
     var body: some View{
         NavigationView {
@@ -30,7 +19,7 @@ struct Home:View{
                 
                 ScrollView{
                     
-                    NavigationLink(destination:Search().navigationBarHidden(true)) {
+                    NavigationLink(destination:SearchView().navigationBarHidden(true)) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(grayColor)
@@ -72,8 +61,8 @@ struct Home:View{
                                 
                                 let item = CategoriesMockedData.shared.categoryArray[num]
                                 
-                                NavigationLink(destination:CategoryStruct(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
-                                    CategoryCard(text: item.name, image: item.image,color: item.color)
+                                NavigationLink(destination:CategoryView(name: item.name, image: item.image, category: item.category).navigationBarHidden(true)) {
+                                    CategoryCardView(text: item.name, image: item.image,color: item.color)
                                 }
                                 
                             }
@@ -108,13 +97,13 @@ struct Home:View{
                             HStack(spacing:25){
                                 
                                 NavigationLink(destination:Restaurant(name: first.name, logo: first.logo, stars: first.stars, distance: first.distance, noOfCoupons: first.noOfcoupons, items: first.items).navigationBarHidden(true)){
-                                    RestaurantCard(image: first.image, logo: first.logo)}
+                                    RestaurantCardView(image: first.image, logo: first.logo)}
                                 
                                 if num+1<RestaurantAPI.shared.getAllRestaurants().count{
                                     let second = RestaurantAPI.shared.getAllRestaurants()[num+1]
                                     NavigationLink(destination:Restaurant(name: second.name, logo: second.logo, stars: second.stars, distance: second.distance, noOfCoupons: second.noOfcoupons, items: second.items).navigationBarHidden(true)){
                                        
-                                        RestaurantCard(image: second.image, logo: second.logo)
+                                        RestaurantCardView(image: second.image, logo: second.logo)
                                         
                                     }
                                 }

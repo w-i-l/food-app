@@ -17,4 +17,8 @@ class FoodAPI {
         return FoodMockedData.shared.allFood
     }
     
+    func getFoodFrom(category: Category) -> [FoodItem] {
+        return FoodMockedData.shared.allFood.filter { $0.category == category }
+    }
+    
 }
