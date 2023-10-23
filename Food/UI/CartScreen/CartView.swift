@@ -1,5 +1,5 @@
 //
-//  Cart.swift
+//  CartView.swift
 //  Food
 //
 //  Created by mishu on 06.05.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Cart: View {
+struct CartView: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = CartViewModel()
@@ -68,7 +68,7 @@ struct Cart: View {
                                 Group {
                                     HStack {
                                         
-                                        ItemCard(
+                                        ItemCardView(
                                             name: item.name,
                                             image: item.image,
                                             price: item.price,
@@ -148,14 +148,3 @@ struct Cart: View {
         }
     }
 }
-
-//struct Cart_Preview:PreviewProvider{
-//   
-//    @StateObject var quantityArray = Storage()
-//    
-//    static var previews:some View{
-//        Cart(APP.$itemsInCart)
-//            .preferredColorScheme(.dark)
-//            .previewDevice("iPhone 13")
-//    }
-//}

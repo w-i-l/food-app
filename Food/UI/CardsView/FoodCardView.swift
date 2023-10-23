@@ -1,5 +1,5 @@
 //
-//  Restaurant.swift
+//  RestaurantView.swift
 //  Food
 //
 //  Created by mishu on 05.05.2022.
@@ -50,7 +50,7 @@ struct FoodCardView: View {
 struct FoodCard_Preview:PreviewProvider{
     static var previews: some View{
         
-        Restaurant(items: FoodMockedData.shared.mcDonaldsItemsArray)
+        RestaurantView(items: FoodMockedData.shared.mcDonaldsItemsArray)
             .previewDevice("iPhone 13")
             .preferredColorScheme(.dark)
     }

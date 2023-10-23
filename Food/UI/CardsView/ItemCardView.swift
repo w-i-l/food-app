@@ -1,5 +1,5 @@
 //
-//  ItemCard.swift
+//  ItemCardView.swift
 //  Food
 //
 //  Created by mishu on 06.05.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemCard: View {
+struct ItemCardView: View {
     
     let name: String
     let image: String
@@ -54,7 +54,7 @@ struct ItemCard_preview:PreviewProvider{
     static var previews:some View{
         ZStack {
             backgroundWhite.ignoresSafeArea()
-            ItemCard()
+            ItemCardView()
                 .preferredColorScheme(.dark)
             .previewDevice("iPhone 13")
         }

@@ -19,7 +19,6 @@ class CategoryViewModel: ObservableObject {
 struct CategoryView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var storage:Storage
     @StateObject private var viewModel: CategoryViewModel
     
     let name: String
@@ -76,7 +75,7 @@ struct CategoryView: View {
                             
                             HStack(spacing:10){
                                 
-                                NavigationLink(destination: Item(
+                                NavigationLink(destination: FoodItemView(
                                     itemType: item.category,
                                     name: item.name,
                                     image:item.image,
@@ -94,7 +93,7 @@ struct CategoryView: View {
                                 if num+1 < viewModel.foodItems.count {
                                     let item2 = viewModel.foodItems[num + 1]
                                     
-                                    NavigationLink(destination: Item(
+                                    NavigationLink(destination: FoodItemView(
                                         itemType: item2.category,
                                         name: item2.name,
                                         image:item2.image,

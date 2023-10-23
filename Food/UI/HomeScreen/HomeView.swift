@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  HomeView.swift
 //  Food
 //
 //  Created by mishu on 03.05.2022.
@@ -37,7 +37,7 @@ struct HomeView: View {
                                 Text("Search")
                                     .foregroundColor(.gray)
                                     .font(.system(size: 16))
-                                .fontWeight(.medium)
+                                    .fontWeight(.medium)
                                 
                                 Spacer()
                             }
@@ -66,7 +66,7 @@ struct HomeView: View {
                         Text("Categories")
                             .foregroundColor(.black)
                             .font(.inter(.medium, size: 16))
-                    Spacer()
+                        Spacer()
                     }
                     .padding(.leading, 30)
                     .padding(.top, 20)
@@ -100,23 +100,23 @@ struct HomeView: View {
                             .padding(.leading, -10)
                         Spacer()
                         
-//                        Text("View all")
-//                            .foregroundColor(greenColor)
-//                            .font(.custom("Inter-Medium", size: 12))
+                        //                        Text("View all")
+                        //                            .foregroundColor(greenColor)
+                        //                            .font(.custom("Inter-Medium", size: 12))
                         
                     }
                     .padding(40)
                     .padding(.bottom, -40)
                     
                     VStack {
-                    
+                        
                         ForEach(Array(stride(from: 0, to: RestaurantAPI.shared.getAllRestaurants().count, by: 2)),id: \.self) { num in
                             
                             let first = RestaurantAPI.shared.getAllRestaurants()[num]
-                           
+                            
                             HStack(spacing:25) {
                                 
-                                NavigationLink(destination:Restaurant(
+                                NavigationLink(destination:RestaurantView(
                                     name: first.name,
                                     logo: first.logo,
                                     stars: first.stars,
@@ -131,7 +131,7 @@ struct HomeView: View {
                                 
                                 if num+1 < RestaurantAPI.shared.getAllRestaurants().count {
                                     let second = RestaurantAPI.shared.getAllRestaurants()[num+1]
-                                    NavigationLink(destination:Restaurant(
+                                    NavigationLink(destination:RestaurantView(
                                         name: second.name,
                                         logo: second.logo,
                                         stars: second.stars,
@@ -146,7 +146,7 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                       
+                            
                         }
                     }
                 }
@@ -158,16 +158,16 @@ struct HomeView: View {
 
 struct Home_Preview:PreviewProvider{
     static var previews: some View{
-
+        
         NavigationView {
             ZStack {
-                Home()
+                HomeView()
                     .previewDevice("iPhone 13")
                     .preferredColorScheme(.dark)
-                }
-            .navigationBarHidden(true)
             }
-
+            .navigationBarHidden(true)
         }
+        
     }
+}
 

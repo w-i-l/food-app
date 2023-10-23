@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  FoodItemView.swift
 //  Food
 //
 //  Created by mishu on 05.05.2022.
@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct Item: View {
+struct FoodItemView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private  var storage:Storage
     
     let itemType: Category
     let name: String
@@ -107,7 +106,7 @@ struct Item: View {
                         
                               
                         //add button
-                        NavigationLink(destination:Add(keys:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsKeys,values:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsValues,quantity:quantity,name:self.name).navigationBarHidden(true)){
+                        NavigationLink(destination:AddItemView(keys:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsKeys,values:FoodAPI.shared.getAllFood().filter{$0.name == self.name}[0].menuItemsValues,quantity:quantity,name:self.name).navigationBarHidden(true)){
                             ZStack {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(blackJetColor)
@@ -155,7 +154,7 @@ struct Item: View {
 struct Item_Preview: PreviewProvider {
     static var previews: some View {
         let item = FoodMockedData.shared.kfcItemsArray.first!
-        Item(
+        FoodItemView(
             itemType: item.category,
             name: item.name,
             image:item.image,

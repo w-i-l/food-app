@@ -34,8 +34,8 @@ struct CategoryCardView: View {
                     .padding(.top, 15)
                 
                 Text(text)
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
+                    .font(.system(size: 14))
+                    .fontWeight(.medium)
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
             }

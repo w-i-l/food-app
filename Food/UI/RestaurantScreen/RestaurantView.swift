@@ -129,7 +129,7 @@ struct RestaurantView: View {
                                     let item = items[no]
                                     
                                     HStack(spacing:10){
-                                        NavigationLink(destination: Item(
+                                        NavigationLink(destination: FoodItemView(
                                             itemType: item.category,
                                             name: item.name,
                                             image:item.image,
@@ -148,7 +148,7 @@ struct RestaurantView: View {
                                             
                                             let item2 = items[no+1]
                                             
-                                            NavigationLink(destination: Item(
+                                            NavigationLink(destination: FoodItemView(
                                                 itemType: item2.category,
                                                 name: item2.name,
                                                 image:item2.image,

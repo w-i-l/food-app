@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchView: View {
     
     @StateObject private var viewModel = SearchViewModel()
-    @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -96,7 +95,7 @@ struct SearchView: View {
                             let first = viewModel.searchArray[no]
                             HStack(spacing: 30){
 
-                                NavigationLink(destination:Item(
+                                NavigationLink(destination:FoodItemView(
                                     itemType: first.category,
                                     name: first.name,
                                     image: first.image,
@@ -118,7 +117,7 @@ struct SearchView: View {
                                     
                                     let second = viewModel.searchArray[no+1]
                                 
-                                    NavigationLink(destination:Item(
+                                    NavigationLink(destination:FoodItemView(
                                         itemType: second.category,
                                         name: second.name,
                                         image: second.image,

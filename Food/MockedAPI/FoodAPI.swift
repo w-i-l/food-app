@@ -21,4 +21,7 @@ class FoodAPI {
         return FoodMockedData.shared.allFood.filter { $0.category == category }
     }
     
+    func getFoodItemBy(name: String) -> FoodItem? {
+        return FoodMockedData.shared.allFood.first { $0.name == name }
+    }
 }
